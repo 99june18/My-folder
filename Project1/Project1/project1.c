@@ -2,15 +2,39 @@
 #include <stdio.h>
 
 int main() {
-	char a[] = "joonas";
-	char b;
+	int a,b,c;
 
-	scanf("%c", &b);
+	scanf("%d %d %d", &a, &b, &c);
 
-	printf("%c", b);
-
-	if (b == a) {
-		printf("%c", a + '??!');
+	if ((a == b) && (b == c)) {
+		printf("%d", 10000+a*1000);
+	}
+	else if ((a == b) && (b != c)) {
+		printf("%d", 1000 + a * 100);
+	}
+	else if ((b == c) && (c != a)) {
+		printf("%d", 1000 + b * 100);
+	}
+	else if ((c == a) && (a != b)) {
+		printf("%d", 1000 + c * 100);
+	}
+	else {
+		if (a > b) {
+			if (a > c) {
+				printf("%d", a * 100);
+			}
+			else {
+				printf("%d", c * 100);
+			}
+		}
+		else {
+			if (b > c) {
+				printf("%d", b * 100);
+			}
+			else {
+				printf("%d", c * 100);
+			}
+		}
 	}
 
 	return 0;
