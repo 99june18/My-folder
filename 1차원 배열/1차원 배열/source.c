@@ -3,26 +3,34 @@
 
 int main()
 {
-	int i = 0;
-	int student[30] = { 0, };
-	int check[28];
+	int num = 0;
+	int student = 0;
 
-	while (i < 28)
-	{
-		scanf("%d", &check[i]);
-		i++;
+	scanf("%d", &num);
+
+	for (int i = 0; i < num; i++) {
+		scanf("%d", &student);
+
+		int score[1000], sum = 0;
+		double average = 0.00;
+
+		for (int j = 0; j < student; j++) {
+			scanf("%d", &score[j]);
+
+			sum += score[j];
+		}
+
+		average = ((double)sum / student);
+
+		int per = 0;
+
+		for (int k = 0; k < student; k++) {
+			if (score[k] > average) {
+				per += 1;
+			}
+		}
+		printf("%.3lf%%\n", (double)per * 100 / student);
 	}
-	i = 0;
-	while (i < 28)
-	{
-		student[check[i] - 1] = 1;
-		i++;
-	}
-	i = 0;
-	while (i < 30)
-	{
-		if (student[i] == 0)
-			printf("%d\n", i + 1);
-		i++;
-	}
+
+	return 0;
 }
